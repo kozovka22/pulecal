@@ -23,18 +23,6 @@ services:
             - { name: sonata.admin, manager_type: orm, label: 'IAM', model_class: Pulecal\Service\Entity\ApiKey }
         public: true
 
-    Pulecal\Service\Admin\CalendarAdmin:
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'Calendar', model_class: Pulecal\Service\Entity\Calendar }
-
-    Pulecal\Service\Admin\EventAdmin:
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'Event', model_class: Pulecal\Service\Entity\Event }
-
-    Pulecal\Service\Admin\UserAdmin:
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: 'User', model_class: Pulecal\Service\Entity\User }
-
     Pulecal\Service\Command\CreateRootUserCommand:
         arguments:
             $rootUsername: '%env(ROOT_USERNAME)%'

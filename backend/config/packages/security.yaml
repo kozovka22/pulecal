@@ -47,6 +47,7 @@ security:
         - { path: ^/admin/, roles: [ROLE_USER, ROLE_ADMIN, ROLE_ROOT] }
         - { path: ^/api/, roles: [ROLE_USER, ROLE_ADMIN, ROLE_ROOT] }
         - { path: ^/api/user, roles: [ROLE_ROOT, ROLE_ADMIN] }
+        - { path: ^/api/jwt, roles: PUBLIC_ACCESS }
 
 when@test:
     security:
