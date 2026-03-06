@@ -1,0 +1,43 @@
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        command: ["sh", "-c", "crond -l 2 -b && php-fpm"]
+        volumes:
+            - ./:/var/www/html
+        env_file:
+            - .env.docker
+        networks:
+            - symfony
+
+    nginx:
+        build: ./docker/nginx
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www/html
+            - ./docker/nginx/default.conf:/etc/nginx/templates/default.conf.template:ro
+        networks:
+            - symfony
+
+    db:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: "main_db"
+            MYSQL_USER: "admin"
+            MYSQL_PASSWORD: "admin"
+        ports:
+            - "3322:3306"
+        volumes:
+            - db_data:/var/lib/mysql
+
+        networks:
+            - symfony
+    
+networks:
+    symfony:
+
+volumes:
+    db_data:

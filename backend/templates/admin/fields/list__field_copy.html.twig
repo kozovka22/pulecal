@@ -1,0 +1,19 @@
+{% extends '@SonataAdmin/CRUD/base_list_field.html.twig' %}
+
+{% block field %}
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="text-to-copy">{{ value }}</span>
+
+        <button type="button" 
+                class="btn btn-sm btn-default" 
+                title="Copy to clipboard"
+                onclick="
+                    navigator.clipboard.writeText('{{ value|escape('js') }}');
+                    const icon = this.querySelector('i');
+                    icon.className = 'fa fa-check text-success';
+                    setTimeout(() => icon.className = 'fa fa-clipboard', 2000);
+                ">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+        </button>
+    </div>
+{% endblock %}

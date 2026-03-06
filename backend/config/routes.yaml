@@ -1,0 +1,27 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: Pulecal\Service\Controller
+    type: attribute
+calendarActions:
+    resource:
+        path: ../src/Actions/Calendar/
+        namespace: Pulecal\Service\Actions\Calendar
+    type: attribute
+    prefix: /api/calendar
+userActions:
+    resource:
+        path: ../src/Actions/User/
+        namespace: Pulecal\Service\Actions\User
+    type: attribute
+    prefix: /api/user
+eventActions:
+    resource:
+        path: ../src/Actions/Event/
+        namespace: Pulecal\Service\Actions\Event
+    type: attribute
+    prefix: /api/event
+kernel:
+    resource: Pulecal\Service\Kernel
+    type: attribute
+

@@ -1,0 +1,17 @@
+sonata_admin:
+    title: 'Sonata Admin'
+    dashboard:
+        groups:
+            iam:
+                label: 'Identity and Access'
+                items:
+                    - iam_admin
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: left }
+    templates:
+        user_block: 'admin/user_block.html.twig'
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]

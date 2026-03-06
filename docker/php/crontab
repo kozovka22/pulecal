@@ -1,0 +1,1 @@
+0 0 * * * /var/www/html/backend/bin/cleanup_calendars >> /var/log/cron.log 2>&1
