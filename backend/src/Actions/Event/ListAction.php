@@ -47,10 +47,8 @@ class ListAction extends AbstractAction {
         
         $filter->toCriteria($queryBuilder);
 
-        $queryBuilder->leftJoin("e.users", "u")
-            ->andWhere($queryBuilder->expr()->orX(
-                "e.owner = :currentUser",
-                "u = :currentUser"
+        $queryBuilder->andWhere($queryBuilder->expr()->orX(
+                "e.owner = :currentUser"
             ))
             ->setParameter("currentUser", $currentUser);
 
